@@ -2,4 +2,6 @@
     <string name="app_name">FlixGuide</string>
     <string name="flix">Flix</string>
     <string name="guide">Guide</string>
+    <string name="movies">Movies</string>
+    <string name="series">Series</string>
 </resources>
