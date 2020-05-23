@@ -9,7 +9,7 @@
 
     <style name="SplashTheme">
         <item name="fontFamily">@font/cinema_st</item>
-        <item name="android:textSize">60sp</item>
+        <item name="android:textSize">@dimen/splash_text</item>
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:background">@color/colorPrimary</item>
     </style>

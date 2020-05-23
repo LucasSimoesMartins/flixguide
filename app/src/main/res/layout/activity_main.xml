@@ -16,7 +16,7 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:contentInsetStart="0dp"
+        app:contentInsetStart="@dimen/toolbar_content_inset_start"
         app:layout_scrollFlags="scroll|enterAlways|snap">
 
         <LinearLayout
@@ -31,7 +31,7 @@
                 android:text="@string/movies"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textSize="20sp" />
+                android:textSize="@dimen/toolbar_text" />
 
             <TextView
                 android:id="@+id/txtSeries"
@@ -41,7 +41,7 @@
                 android:text="@string/series"
                 android:gravity="center"
                 android:layout_weight="1"
-                android:textSize="20sp" />
+                android:textSize="@dimen/toolbar_text" />
 
         </LinearLayout>
 
@@ -62,21 +62,21 @@
             <ImageView
                 android:id="@+id/imgMostPopular"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="@dimen/img_most_popular_height"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/breaking_bad"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/auto_height"
                 android:background="@drawable/gradient_top"
                 app:layout_constraintBottom_toBottomOf="@id/imgMostPopular"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/auto_height"
                 android:background="@drawable/gradient_bottom"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/imgMostPopular"/>

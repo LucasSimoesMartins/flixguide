@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_text">20sp</dimen>
+    <dimen name="splash_text">60sp</dimen>
+    <dimen name="toolbar_content_inset_start">0dp</dimen>
+    <dimen name="auto_height">0dp</dimen>
+    <dimen name="img_most_popular_height">400dp</dimen>
+
+</resources>
