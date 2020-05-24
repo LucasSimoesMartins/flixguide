@@ -5,6 +5,9 @@
         <item name="android:statusBarColor">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
+        <item name="colorOnPrimary">@android:color/white</item>
     </style>
 
     <style name="SplashTheme">

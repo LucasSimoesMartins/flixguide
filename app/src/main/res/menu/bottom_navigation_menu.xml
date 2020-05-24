@@ -3,21 +3,21 @@
     <item
         android:id="@+id/icHome"
         android:enabled="true"
-        android:icon="@drawable/ic_house_outlined"
+        android:icon="@drawable/selector_ic_home"
         android:title="@string/home"/>
     <item
         android:id="@+id/icSearch"
         android:enabled="true"
-        android:icon="@drawable/ic_search_outlined"
+        android:icon="@drawable/selector_ic_search"
         android:title="@string/search"/>
     <item
         android:id="@+id/icFavorite"
         android:enabled="true"
-        android:icon="@drawable/ic_heart_outlined"
+        android:icon="@drawable/selector_ic_favorite"
         android:title="@string/favorite"/>
     <item
         android:id="@+id/icSettings"
         android:enabled="true"
-        android:icon="@drawable/ic_gear_outlined"
+        android:icon="@drawable/selector_ic_settings"
         android:title="@string/settings"/>
 </menu>

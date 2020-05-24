@@ -61,19 +61,12 @@
                 android:layout_height="@dimen/img_most_popular_height"
                 android:scaleType="centerCrop"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/breaking_bad" />
+                app:srcCompat="@drawable/img_example" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/auto_height"
-                android:background="@drawable/gradient_top"
-                app:layout_constraintBottom_toBottomOf="@id/imgMostPopular"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/auto_height"
-                android:background="@drawable/gradient_bottom"
+                android:background="@drawable/bg_gradient_bottom"
                 app:layout_constraintBottom_toBottomOf="@id/imgMostPopular"
                 app:layout_constraintTop_toTopOf="parent" />
 
