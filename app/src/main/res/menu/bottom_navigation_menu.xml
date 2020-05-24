@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/icHome"
+        android:enabled="true"
+        android:icon="@drawable/ic_house_outlined"
+        android:title="@string/home"/>
+    <item
+        android:id="@+id/icSearch"
+        android:enabled="true"
+        android:icon="@drawable/ic_search_outlined"
+        android:title="@string/search"/>
+    <item
+        android:id="@+id/icFavorite"
+        android:enabled="true"
+        android:icon="@drawable/ic_heart_outlined"
+        android:title="@string/favorite"/>
+    <item
+        android:id="@+id/icSettings"
+        android:enabled="true"
+        android:icon="@drawable/ic_gear_outlined"
+        android:title="@string/settings"/>
+</menu>
