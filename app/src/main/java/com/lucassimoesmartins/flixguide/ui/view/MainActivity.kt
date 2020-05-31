@@ -1,7 +1,8 @@
-package com.lucassimoesmartins.flixguide
+package com.lucassimoesmartins.flixguide.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.lucassimoesmartins.flixguide.R
 
 class MainActivity : AppCompatActivity() {
 
