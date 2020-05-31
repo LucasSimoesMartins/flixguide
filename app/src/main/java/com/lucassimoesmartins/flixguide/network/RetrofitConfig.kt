@@ -1,6 +1,6 @@
 package com.lucassimoesmartins.flixguide.network
 
-import com.lucassimoesmartins.flixguide.Constants
+import com.lucassimoesmartins.flixguide.constant.Constants
 import com.lucassimoesmartins.flixguide.network.service.Service
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

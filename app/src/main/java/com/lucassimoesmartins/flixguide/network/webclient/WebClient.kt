@@ -1,6 +1,6 @@
 package com.lucassimoesmartins.flixguide.network.webclient
 
-import com.lucassimoesmartins.flixguide.Constants
+import com.lucassimoesmartins.flixguide.constant.Constants
 import com.lucassimoesmartins.flixguide.model.MovieResponse
 import com.lucassimoesmartins.flixguide.network.RetrofitConfig
 import com.lucassimoesmartins.flixguide.network.service.Service

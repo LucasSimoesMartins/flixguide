@@ -10,8 +10,6 @@ class HomeViewModel(
     private val repository: MovieRepository
 ) : ViewModel() {
 
-    fun getPopularMovies(): LiveData<Resource<MovieResponse>> {
-        return repository.getPopularMovies()
-    }
+    fun getPopularMovies(): LiveData<Resource<MovieResponse>> = repository.getPopularMovies()
 
 }

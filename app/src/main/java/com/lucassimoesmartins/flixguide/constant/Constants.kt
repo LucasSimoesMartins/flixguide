@@ -1,4 +1,4 @@
-package com.lucassimoesmartins.flixguide
+package com.lucassimoesmartins.flixguide.constant
 
 class Constants {
     companion object {

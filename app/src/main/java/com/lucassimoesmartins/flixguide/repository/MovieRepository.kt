@@ -6,18 +6,17 @@ import com.lucassimoesmartins.flixguide.model.MovieResponse
 import com.lucassimoesmartins.flixguide.network.webclient.WebClient
 
 class MovieRepository(
-    private val webClient: WebClient = WebClient()
+    private val webClient: WebClient
 ) {
 
     fun getPopularMovies(): LiveData<Resource<MovieResponse>> {
         val mutableLiveData = MutableLiveData<Resource<MovieResponse>>()
 
-        webClient.getPopularMovies(fun(movieResponse: MovieResponse?) {
-
+        webClient.getPopularMovies(success = { movieResponse ->
             movieResponse?.let {
                 mutableLiveData.value = Resource(data = it)
             }
-        }, fun(errorMessage: String?) {
+        }, failure = { errorMessage ->
             mutableLiveData.value = Resource(data = null, error = errorMessage)
         })
 
