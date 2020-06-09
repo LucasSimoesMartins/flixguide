@@ -7,18 +7,15 @@ import com.lucassimoesmartins.flixguide.model.MovieResponse
 import com.lucassimoesmartins.flixguide.network.webclient.WebClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class MovieRepository(
     private val webClient: WebClient
 ) {
 
-    fun getPopularMovies(
-        job: Job
-    ): LiveData<Resource<MovieResponse>> {
+    fun getPopularMovies(): LiveData<Resource<MovieResponse>> {
         return MutableLiveData<Resource<MovieResponse>>().also { mutableLiveData ->
-            CoroutineScope(IO + job).launch {
+            CoroutineScope(IO).launch {
 
                 val resource: Resource<MovieResponse>? = try {
                     webClient.getPopularMovies()?.let { movieResponse ->
