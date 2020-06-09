@@ -8,8 +8,8 @@ class WebClient(
     private val service: Service = RetrofitConfig().service
 ) {
 
-    fun getPopularMovies(): MovieResponse? {
-        return service.getPopularMovies().execute().body()
+    suspend fun getPopularMovies(): MovieResponse {
+        return service.getPopularMovies()
     }
 
 }

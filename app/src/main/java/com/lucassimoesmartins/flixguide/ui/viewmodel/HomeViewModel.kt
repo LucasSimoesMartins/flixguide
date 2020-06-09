@@ -1,16 +1,32 @@
 package com.lucassimoesmartins.flixguide.ui.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.lucassimoesmartins.flixguide.model.MovieResponse
+import androidx.lifecycle.viewModelScope
 import com.lucassimoesmartins.flixguide.repository.MovieRepository
-import com.lucassimoesmartins.flixguide.repository.Resource
+import kotlinx.coroutines.launch
 
 class HomeViewModel(
     private val repository: MovieRepository
 ) : ViewModel() {
 
-    fun getPopularMovies(): LiveData<Resource<MovieResponse>> {
-        return repository.getPopularMovies()
+    val movieList = repository.movieList
+
+    fun getPopularMovies() {
+        launchDataLoad {
+            repository.getPopularMovies()
+        }
+    }
+
+    private fun launchDataLoad(block: suspend () -> Unit): Unit {
+        viewModelScope.launch {
+            try {
+//                spinner.value = true
+                block()
+            } catch (error: Exception) {
+//                snackBar.value = error.message
+            } finally {
+//                spinner.value = false
+            }
+        }
     }
 }

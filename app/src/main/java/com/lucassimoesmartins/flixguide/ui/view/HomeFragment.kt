@@ -1,11 +1,11 @@
 package com.lucassimoesmartins.flixguide.ui.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.lucassimoesmartins.flixguide.R
 import com.lucassimoesmartins.flixguide.ui.viewmodel.HomeViewModel
@@ -29,21 +29,16 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private fun setUI(v: View?) {
         v?.txtMovies?.setOnClickListener(this)
+
+        viewModel.movieList.observe(viewLifecycleOwner, Observer { movieList ->
+            Toast.makeText(activity?.applicationContext, movieList.toString(), Toast.LENGTH_LONG).show()
+        })
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.txtMovies -> {
-                viewModel.getPopularMovies().observe(this, Observer { resource ->
-
-                    resource.data?.let {
-                        Toast.makeText(activity?.applicationContext, it.toString(), Toast.LENGTH_LONG).show()
-                    }
-
-                    resource.error?.let { errorMessage ->
-                        Toast.makeText(activity?.applicationContext, errorMessage, Toast.LENGTH_LONG).show()
-                    }
-                })
+                viewModel.getPopularMovies()
             }
         }
     }

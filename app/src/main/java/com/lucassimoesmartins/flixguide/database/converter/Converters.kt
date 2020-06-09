@@ -7,7 +7,7 @@ class Converters {
 
     @TypeConverter
     fun jsonToIntList(json: String): List<Int> {
-        return Gson().fromJson<List<Int>>(json, Int::class.java)
+        return Gson().fromJson(json, Array<Int>::class.java).toList()
     }
 
     @TypeConverter

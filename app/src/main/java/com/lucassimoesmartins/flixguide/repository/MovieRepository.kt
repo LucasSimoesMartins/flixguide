@@ -1,33 +1,25 @@
 package com.lucassimoesmartins.flixguide.repository
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.lucassimoesmartins.flixguide.constant.Constants
+import com.lucassimoesmartins.flixguide.database.dao.MovieDao
+import com.lucassimoesmartins.flixguide.model.Movie
 import com.lucassimoesmartins.flixguide.model.MovieResponse
 import com.lucassimoesmartins.flixguide.network.webclient.WebClient
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.launch
 
 class MovieRepository(
-    private val webClient: WebClient
+    private val webClient: WebClient,
+    private val movieDao: MovieDao
 ) {
 
-    fun getPopularMovies(): LiveData<Resource<MovieResponse>> {
-        return MutableLiveData<Resource<MovieResponse>>().also { mutableLiveData ->
-            CoroutineScope(IO).launch {
+    val movieList: LiveData<List<Movie>> = movieDao.getMovies
 
-                val resource: Resource<MovieResponse>? = try {
-                    webClient.getPopularMovies()?.let { movieResponse ->
-                        Resource(data = movieResponse)
-                    } ?: run {
-                        Resource(data = null, error = Constants.GENERIC_FAIL_MESSAGE) as Resource<MovieResponse>
-                    }
-                } catch (e: Exception) {
-                    Resource(data = null, error = Constants.GENERIC_FAIL_MESSAGE)
-                }
-                mutableLiveData.postValue(resource)
-            }
+    suspend fun getPopularMovies() {
+        try {
+            val movieResponse: MovieResponse = webClient.getPopularMovies()
+            movieDao.insertMovieList(movieResponse.results)
+        } catch (error: Exception) {
+            throw Exception(Constants.GENERIC_FAIL_MESSAGE, error)
         }
     }
 }
