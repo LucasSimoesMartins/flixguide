@@ -3,7 +3,6 @@ package com.lucassimoesmartins.flixguide.repository
 import androidx.lifecycle.LiveData
 import com.lucassimoesmartins.flixguide.constant.Constants
 import com.lucassimoesmartins.flixguide.database.dao.MovieDao
-import com.lucassimoesmartins.flixguide.model.Movie
 import com.lucassimoesmartins.flixguide.model.MovieResponse
 import com.lucassimoesmartins.flixguide.network.webclient.WebClient
 
@@ -12,7 +11,8 @@ class MovieRepository(
     private val movieDao: MovieDao
 ) {
 
-    val movieList: LiveData<List<Movie>> = movieDao.getMovies
+    val imgFeaturedMovie: LiveData<String> = movieDao.getImgFeaturedMovie
+    val imgPopularMovieList: LiveData<List<String>> = movieDao.getImgPopularMovieList
 
     suspend fun getPopularMovies() {
         try {

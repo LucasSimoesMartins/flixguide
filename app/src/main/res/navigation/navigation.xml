@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.lucassimoesmartins.flixguide.ui.view.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/home_fragment" />
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.lucassimoesmartins.flixguide.ui.view.SplashFragment"

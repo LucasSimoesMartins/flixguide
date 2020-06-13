@@ -13,7 +13,10 @@ interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovieList(movieList: List<Movie>)
 
-    @get:Query("select * from Movie order by id desc")
-    val getMovies: LiveData<List<Movie>>
+    @get:Query("select backdrop_path from Movie order by popularity desc")
+    val getImgFeaturedMovie: LiveData<String>
+
+    @get:Query("select poster_path from Movie order by popularity desc")
+    val getImgPopularMovieList: LiveData<List<String>>
 
 }

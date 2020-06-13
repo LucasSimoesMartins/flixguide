@@ -8,4 +8,7 @@
     <string name="search">Search</string>
     <string name="favorite">Favorite</string>
     <string name="settings">Settings</string>
+    <string name="featured_entertainment">Featured Entertainment</string>
+    <string name="entertainment_poster">Entertainment Poster</string>
+    <string name="the_most_popular">The most popular</string>
 </resources>

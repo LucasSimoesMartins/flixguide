@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:background="@color/colorPrimary">-->
+
+<!--        <com.google.android.material.appbar.MaterialToolbar-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:contentInsetStart="@dimen/toolbar_content_inset_start"-->
+<!--            app:layout_scrollFlags="scroll|enterAlways|snap">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/txtMovies"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/rocko_flf"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/movies"-->
+<!--                    android:textSize="@dimen/toolbar_text" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/txtSeries"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/rocko_flf"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/series"-->
+<!--                    android:textSize="@dimen/toolbar_text" />-->
+
+<!--            </LinearLayout>-->
+
+<!--        </com.google.android.material.appbar.MaterialToolbar>-->
+
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgFeaturedEntertainment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/img_most_popular_height"
+                android:contentDescription="@string/featured_entertainment"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/img_featured_entertainment" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/auto_height"
+                android:background="@drawable/bg_gradient_bottom"
+                app:layout_constraintBottom_toBottomOf="@id/imgFeaturedEntertainment"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtPopular"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/rocko_flf"
+                android:text="@string/the_most_popular"
+                android:textSize="@dimen/title_list_text"
+                android:padding="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/imgFeaturedEntertainment" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPopular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txtPopular"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

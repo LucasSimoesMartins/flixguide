@@ -9,7 +9,8 @@ class HomeViewModel(
     private val repository: MovieRepository
 ) : ViewModel() {
 
-    val movieList = repository.movieList
+    val imgFeaturedMovie = repository.imgFeaturedMovie
+    val imgPopularMovieList = repository.imgPopularMovieList
 
     fun getPopularMovies() {
         launchDataLoad {

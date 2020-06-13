@@ -9,7 +9,7 @@ class WebClient(
 ) {
 
     suspend fun getPopularMovies(): MovieResponse {
-        return service.getPopularMovies()
+        return service.getPopularMovieList()
     }
 
 }

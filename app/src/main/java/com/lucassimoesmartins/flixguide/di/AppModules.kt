@@ -5,6 +5,7 @@ import com.lucassimoesmartins.flixguide.database.AppDatabase
 import com.lucassimoesmartins.flixguide.database.dao.MovieDao
 import com.lucassimoesmartins.flixguide.network.webclient.WebClient
 import com.lucassimoesmartins.flixguide.repository.MovieRepository
+import com.lucassimoesmartins.flixguide.ui.view.adapter.EntertainmentListAdapter
 import com.lucassimoesmartins.flixguide.ui.viewmodel.HomeViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -14,6 +15,12 @@ private const val DATABASE_NAME = "flixguide.db"
 val viewModelModule = module {
     viewModel<HomeViewModel> {
         HomeViewModel(get())
+    }
+}
+
+val uiModule = module {
+    factory<EntertainmentListAdapter> {
+        EntertainmentListAdapter(get())
     }
 }
 
@@ -47,6 +54,7 @@ val repositoryModule = module {
 
 val appModules = listOf(
     viewModelModule,
+    uiModule,
     webClientModule,
     dbModule,
     daoModule,
