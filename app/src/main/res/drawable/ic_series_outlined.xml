@@ -1,0 +1,37 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="512dp"
+    android:height="512dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+  <group>
+    <clip-path
+        android:pathData="M0,0h512v512h-512z"/>
+    <path
+        android:pathData="M314.895,132.325C314.902,132.16 314.903,131.993 314.903,131.826C314.903,98.435 288.508,71.326 255.996,71.326C223.644,71.326 197.349,98.169 197.097,131.335L314.895,132.325L314.895,132.325Z"
+        android:strokeLineJoin="miter"
+        android:strokeWidth="10"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="square"/>
+    <path
+        android:pathData="M341.112,29.608L341.112,29.608C343.038,31.45 342.231,35.426 339.31,38.481L298.595,81.074C295.674,84.129 291.739,85.115 289.812,83.273L289.812,83.273C287.886,81.432 288.693,77.456 291.614,74.4L332.329,31.808C335.25,28.752 339.186,27.767 341.112,29.608Z"
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#00000000"/>
+    <path
+        android:pathData="M186.224,22.574L186.224,22.574C188.416,21.058 192.148,22.649 194.553,26.125L228.077,74.581C230.482,78.057 230.655,82.111 228.463,83.627L228.463,83.627C226.271,85.143 222.54,83.552 220.134,80.076L186.611,31.62C184.206,28.144 184.032,24.09 186.224,22.574Z"
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#00000000"/>
+    <path
+        android:pathData="M57.153,135.325L454.847,135.325C464.314,135.325 472,143.011 472,152.478L472,468.171C472,477.639 464.314,485.325 454.847,485.325L57.153,485.325C47.686,485.325 40,477.639 40,468.171L40,152.478C40,143.011 47.686,135.325 57.153,135.325Z"
+        android:strokeWidth="10"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="square"/>
+    <path
+        android:pathData="M83.633,175.325L428.367,175.325C430.372,175.325 432,176.953 432,178.958L432,441.692C432,443.697 430.372,445.325 428.367,445.325L83.633,445.325C81.628,445.325 80,443.697 80,441.692L80,178.958C80,176.953 81.628,175.325 83.633,175.325Z"
+        android:strokeWidth="10"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="square"/>
+  </group>
+</vector>
