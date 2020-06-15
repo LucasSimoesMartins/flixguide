@@ -16,7 +16,7 @@ import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
-class HomeFragment : Fragment(), View.OnClickListener {
+class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModel()
     private val entertainmentListAdapter: EntertainmentListAdapter by inject()
@@ -32,7 +32,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun setUI(v: View?) {
-//        v?.txtMovies?.setOnClickListener(this)
 
         v?.rvPopular?.let {
             it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -50,11 +49,4 @@ class HomeFragment : Fragment(), View.OnClickListener {
         })
     }
 
-    override fun onClick(v: View?) {
-        when (v?.id) {
-//            R.id.txtMovies -> {
-//                viewModel.getPopularMovies()
-//            }
-        }
-    }
 }

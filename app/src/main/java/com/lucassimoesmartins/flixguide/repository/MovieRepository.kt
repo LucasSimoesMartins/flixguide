@@ -1,10 +1,11 @@
 package com.lucassimoesmartins.flixguide.repository
 
 import androidx.lifecycle.LiveData
-import com.lucassimoesmartins.flixguide.constant.Constants
 import com.lucassimoesmartins.flixguide.database.dao.MovieDao
 import com.lucassimoesmartins.flixguide.model.MovieResponse
 import com.lucassimoesmartins.flixguide.network.webclient.WebClient
+
+const val GENERIC_FAIL_MESSAGE = "Sorry, something went wrong, come back later"
 
 class MovieRepository(
     private val webClient: WebClient,
@@ -19,7 +20,7 @@ class MovieRepository(
             val movieResponse: MovieResponse = webClient.getPopularMovies()
             movieDao.insertMovieList(movieResponse.results)
         } catch (error: Exception) {
-            throw Exception(Constants.GENERIC_FAIL_MESSAGE, error)
+            throw Exception(GENERIC_FAIL_MESSAGE, error)
         }
     }
 }
