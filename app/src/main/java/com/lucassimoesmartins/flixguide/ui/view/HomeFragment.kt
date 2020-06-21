@@ -47,6 +47,8 @@ class HomeFragment : Fragment() {
         viewModel.imgPopularMovieList.observe(viewLifecycleOwner, Observer { imgPopularMovieList ->
             entertainmentListAdapter.updateList(imgPopularMovieList)
         })
+
+        viewModel.getPopularMovies()
     }
 
 }

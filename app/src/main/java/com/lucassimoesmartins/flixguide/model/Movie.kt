@@ -2,13 +2,14 @@ package com.lucassimoesmartins.flixguide.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.lucassimoesmartins.flixguide.predefined.MovieCategory
 
 @Entity
 data class Movie(
     @PrimaryKey
     val id: Int,
     val adult: Boolean,
-    val backdrop_path: String,
+    val backdrop_path: String?,
     val genre_ids: List<Int>,
     val original_language: String,
     val original_title: String,
@@ -19,5 +20,6 @@ data class Movie(
     val title: String,
     val video: Boolean,
     val vote_average: Float,
-    val vote_count: Int
+    val vote_count: Int,
+    var category: MovieCategory
 )
