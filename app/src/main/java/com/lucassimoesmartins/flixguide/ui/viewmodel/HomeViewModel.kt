@@ -12,9 +12,9 @@ class HomeViewModel(
     val imgFeaturedMovie = repository.imgFeaturedMovie
     val imgPopularMovieList = repository.imgPopularMovieList
 
-    fun getPopularMovies() {
+    fun getMovies() {
         launchDataLoad {
-            repository.getPopularMovies()
+            repository.getMovies()
         }
     }
 

@@ -1,47 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/swipeRefreshLayout"
     android:background="@color/colorPrimary">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imgFeaturedEntertainment"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/img_most_popular_height"
-            android:contentDescription="@string/featured_entertainment"
-            android:scaleType="centerCrop"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/img_featured_entertainment" />
+            android:layout_height="wrap_content">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/auto_height"
-            android:background="@drawable/bg_gradient_bottom"
-            app:layout_constraintBottom_toBottomOf="@id/imgFeaturedEntertainment"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/imgFeaturedEntertainment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/img_most_popular_height"
+                android:contentDescription="@string/featured_entertainment"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/img_featured_entertainment" />
 
-        <TextView
-            android:id="@+id/txtPopular"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/rocko_flf"
-            android:padding="@dimen/title_padding"
-            android:text="@string/the_most_popular"
-            android:textSize="@dimen/title_list_text"
-            app:layout_constraintTop_toBottomOf="@+id/imgFeaturedEntertainment" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/auto_height"
+                android:background="@drawable/bg_gradient_bottom"
+                app:layout_constraintBottom_toBottomOf="@id/imgFeaturedEntertainment"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvPopular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/txtPopular" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/txtPopular"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/rocko_flf"
+                android:padding="@dimen/title_padding"
+                android:text="@string/the_most_popular"
+                android:textSize="@dimen/title_list_text"
+                app:layout_constraintTop_toBottomOf="@+id/imgFeaturedEntertainment" />
 
-</ScrollView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPopular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txtPopular" />
+
+            <TextView
+                android:id="@+id/txtTopRated"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/rocko_flf"
+                android:padding="@dimen/title_padding"
+                android:text="@string/top_rated"
+                android:textSize="@dimen/title_list_text"
+                app:layout_constraintTop_toBottomOf="@+id/rvPopular" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTopRated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txtTopRated" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

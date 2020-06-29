@@ -16,7 +16,7 @@ class MovieRepository(
     val imgFeaturedMovie: LiveData<String> = movieDao.getImgFeaturedMovie
     val imgPopularMovieList: LiveData<List<String>> = movieDao.getImgPopularMovieList
 
-    suspend fun getPopularMovies() {
+    suspend fun getMovies() {
         try {
             val movieResponse: MovieResponse = webClient.getPopularMovies()
             movieResponse.results.forEach { movie ->

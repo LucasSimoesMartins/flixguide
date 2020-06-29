@@ -7,19 +7,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.lucassimoesmartins.flixguide.R
 import com.lucassimoesmartins.flixguide.ui.view.adapter.EntertainmentListAdapter
 import com.lucassimoesmartins.flixguide.ui.viewmodel.HomeViewModel
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private val viewModel: HomeViewModel by viewModel()
-    private val entertainmentListAdapter: EntertainmentListAdapter by inject()
+    private val popularListAdapter: EntertainmentListAdapter by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,9 +35,11 @@ class HomeFragment : Fragment() {
 
     private fun setUI(v: View?) {
 
+        v?.swipeRefreshLayout?.setOnRefreshListener(this)
+
         v?.rvPopular?.let {
             it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            it.adapter = entertainmentListAdapter
+            it.adapter = popularListAdapter
         }
 
         viewModel.imgFeaturedMovie.observe(viewLifecycleOwner, Observer { featuredMovie ->
@@ -45,10 +49,15 @@ class HomeFragment : Fragment() {
         })
 
         viewModel.imgPopularMovieList.observe(viewLifecycleOwner, Observer { imgPopularMovieList ->
-            entertainmentListAdapter.updateList(imgPopularMovieList)
+            popularListAdapter.updateList(imgPopularMovieList)
         })
 
-        viewModel.getPopularMovies()
+        viewModel.getMovies()
+    }
+
+    override fun onRefresh() {
+        viewModel.getMovies()
+        swipeRefreshLayout.isRefreshing = false;
     }
 
 }

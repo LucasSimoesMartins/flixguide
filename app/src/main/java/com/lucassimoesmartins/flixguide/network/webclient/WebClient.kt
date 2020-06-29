@@ -12,4 +12,8 @@ class WebClient(
         return service.getPopularMovieList()
     }
 
+    suspend fun getTopRatedMovies(): MovieResponse {
+        return service.getTopRatedMovieList()
+    }
+
 }
