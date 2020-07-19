@@ -35,7 +35,10 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private fun setUI(v: View?) {
 
-        v?.swipeRefreshLayout?.setOnRefreshListener(this)
+        v?.swipeRefreshLayout?.let {
+            it.setOnRefreshListener(this)
+            it.swipeRefreshLayout?.setDistanceToTriggerSync(500)
+        }
 
         v?.rvPopular?.let {
             it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -57,7 +60,7 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     override fun onRefresh() {
         viewModel.getMovies()
-        swipeRefreshLayout.isRefreshing = false;
+        swipeRefreshLayout.isRefreshing = false
     }
 
 }
