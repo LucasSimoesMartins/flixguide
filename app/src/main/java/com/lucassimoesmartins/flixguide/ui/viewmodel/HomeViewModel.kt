@@ -10,7 +10,7 @@ class HomeViewModel(
 ) : ViewModel() {
 
     val imgFeaturedMovie = repository.imgFeaturedMovie
-    val imgPopularMovieList = repository.imgPopularMovieList
+    fun getImgMovieList(categoryId: Int) = repository.getImgMovieList(categoryId)
 
     fun getMovies() {
         launchDataLoad {
@@ -18,7 +18,7 @@ class HomeViewModel(
         }
     }
 
-    private fun launchDataLoad(block: suspend () -> Unit): Unit {
+    private fun launchDataLoad(block: suspend () -> Unit) {
         viewModelScope.launch {
             try {
 //                spinner.value = true

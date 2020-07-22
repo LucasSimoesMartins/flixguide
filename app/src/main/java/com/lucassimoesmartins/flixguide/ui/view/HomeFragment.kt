@@ -51,8 +51,12 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                 .into(v?.imgFeaturedEntertainment)
         })
 
-        viewModel.imgPopularMovieList.observe(viewLifecycleOwner, Observer { imgPopularMovieList ->
-            popularListAdapter.updateList(imgPopularMovieList)
+        viewModel.getImgMovieList(1).observe(viewLifecycleOwner, Observer { imgMovieList ->
+
+        })
+
+        viewModel.getImgMovieList(2).observe(viewLifecycleOwner, Observer { imgMovieList ->
+
         })
 
         viewModel.getMovies()

@@ -2,9 +2,10 @@ package com.lucassimoesmartins.flixguide.repository
 
 import androidx.lifecycle.LiveData
 import com.lucassimoesmartins.flixguide.database.dao.MovieDao
+import com.lucassimoesmartins.flixguide.model.Category
+import com.lucassimoesmartins.flixguide.model.MovieCategoryCrossRef
 import com.lucassimoesmartins.flixguide.model.MovieResponse
 import com.lucassimoesmartins.flixguide.network.webclient.WebClient
-import com.lucassimoesmartins.flixguide.predefined.MovieCategory
 
 const val GENERIC_FAIL_MESSAGE = "Sorry, something went wrong, come back later"
 
@@ -14,14 +15,20 @@ class MovieRepository(
 ) {
 
     val imgFeaturedMovie: LiveData<String> = movieDao.getImgFeaturedMovie
-    val imgPopularMovieList: LiveData<List<String>> = movieDao.getImgPopularMovieList
+    fun getImgMovieList(categoryId: Int) = movieDao.getImgMovieList(categoryId)
 
     suspend fun getMovies() {
         try {
+            movieDao.insertCategoryList(listOf(Category(1,"popular"), Category(2, "top_rated")))
+
             val movieResponse: MovieResponse = webClient.getPopularMovies()
+
+            val movieCategoryCrossRefList = arrayListOf<MovieCategoryCrossRef>()
             movieResponse.results.forEach { movie ->
-                movie.category = MovieCategory.POPULAR
+                movieCategoryCrossRefList.add(MovieCategoryCrossRef(movieId = movie.id, categoryId = 1))
             }
+
+            movieDao.insertMovieCategoryCrossRefList(movieCategoryCrossRefList)
             movieDao.insertMovieList(movieResponse.results)
         } catch (error: Exception) {
             throw Exception(GENERIC_FAIL_MESSAGE, error)
