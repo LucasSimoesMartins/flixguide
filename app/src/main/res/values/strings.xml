@@ -11,5 +11,9 @@
     <string name="featured_entertainment">Featured Entertainment</string>
     <string name="entertainment_poster">Entertainment Poster</string>
     <string name="the_most_popular">The most popular</string>
-    <string name="top_rated">Top Rated</string>
+    <string name="top_rated">Top rated</string>
+    <string name="top_10_today">Top 10 today</string>
+    <string name="now_playing">Now playing</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="old">Old</string>
 </resources>

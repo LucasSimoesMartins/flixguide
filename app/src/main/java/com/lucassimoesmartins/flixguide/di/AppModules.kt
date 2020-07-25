@@ -36,7 +36,7 @@ val dbModule = module {
             get(),
             AppDatabase::class.java,
             DATABASE_NAME
-        ).build()
+        ).createFromAsset("database/flixguide.db").build()
     }
 }
 

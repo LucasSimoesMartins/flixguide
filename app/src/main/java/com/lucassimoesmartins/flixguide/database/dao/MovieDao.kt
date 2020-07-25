@@ -1,8 +1,12 @@
 package com.lucassimoesmartins.flixguide.database.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
-import com.lucassimoesmartins.flixguide.model.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.lucassimoesmartins.flixguide.model.Movie
+import com.lucassimoesmartins.flixguide.model.MovieCategoryCrossRef
 
 @Dao
 interface MovieDao {
@@ -13,14 +17,10 @@ interface MovieDao {
     @get:Query("select backdrop_path from Movie order by popularity desc")
     val getImgFeaturedMovie: LiveData<String>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertCategoryList(categoryList: List<Category>)
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovieCategoryCrossRefList(movieCategoryCrossRef: List<MovieCategoryCrossRef>)
 
-    @Transaction
-    @Query("SELECT * FROM Movie m inner join MovieCategoryCrossRef c on m.id = c.movieId where c.categoryId = :categoryId")
-    fun getImgMovieList(categoryId: Int): LiveData<List<MovieWithCategoryList>>
+    @Query("SELECT poster_path FROM Movie m inner join MovieCategoryCrossRef c on m.id = c.movieId where c.categoryId = :categoryId limit 20")
+    fun getImgMovieList(categoryId: Int): LiveData<List<String>>
 
 }

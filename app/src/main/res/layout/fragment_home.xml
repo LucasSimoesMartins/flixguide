@@ -64,6 +64,70 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/txtTopRated" />
 
+            <TextView
+                android:id="@+id/txtTopTenToday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/rocko_flf"
+                android:padding="@dimen/title_padding"
+                android:text="@string/top_10_today"
+                android:textSize="@dimen/title_list_text"
+                app:layout_constraintTop_toBottomOf="@+id/rvTopRated" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTopTenToday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txtTopTenToday" />
+
+            <TextView
+                android:id="@+id/txtNowPlaying"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/rocko_flf"
+                android:padding="@dimen/title_padding"
+                android:text="@string/now_playing"
+                android:textSize="@dimen/title_list_text"
+                app:layout_constraintTop_toBottomOf="@+id/rvTopTenToday" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNowPlaying"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txtNowPlaying" />
+
+            <TextView
+                android:id="@+id/txtUpcoming"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/rocko_flf"
+                android:padding="@dimen/title_padding"
+                android:text="@string/upcoming"
+                android:textSize="@dimen/title_list_text"
+                app:layout_constraintTop_toBottomOf="@+id/rvNowPlaying" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvUpcoming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txtUpcoming" />
+
+            <TextView
+                android:id="@+id/txtOld"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/rocko_flf"
+                android:padding="@dimen/title_padding"
+                android:text="@string/old"
+                android:textSize="@dimen/title_list_text"
+                app:layout_constraintTop_toBottomOf="@+id/rvUpcoming" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvOld"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/txtOld" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

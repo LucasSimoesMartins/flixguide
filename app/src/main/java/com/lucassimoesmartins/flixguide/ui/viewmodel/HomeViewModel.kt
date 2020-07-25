@@ -2,6 +2,7 @@ package com.lucassimoesmartins.flixguide.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.lucassimoesmartins.flixguide.predefined.CategoryEnum
 import com.lucassimoesmartins.flixguide.repository.MovieRepository
 import kotlinx.coroutines.launch
 
@@ -10,7 +11,7 @@ class HomeViewModel(
 ) : ViewModel() {
 
     val imgFeaturedMovie = repository.imgFeaturedMovie
-    fun getImgMovieList(categoryId: Int) = repository.getImgMovieList(categoryId)
+    fun getImgMovieList(categoryEnum: CategoryEnum) = repository.getImgMovieList(categoryEnum)
 
     fun getMovies() {
         launchDataLoad {

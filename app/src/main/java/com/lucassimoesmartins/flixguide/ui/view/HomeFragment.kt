@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.lucassimoesmartins.flixguide.R
+import com.lucassimoesmartins.flixguide.predefined.CategoryEnum
 import com.lucassimoesmartins.flixguide.ui.view.adapter.EntertainmentListAdapter
 import com.lucassimoesmartins.flixguide.ui.viewmodel.HomeViewModel
 import com.squareup.picasso.Picasso
@@ -22,6 +23,11 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private val viewModel: HomeViewModel by viewModel()
     private val popularListAdapter: EntertainmentListAdapter by inject()
+    private val topRatedListAdapter: EntertainmentListAdapter by inject()
+    private val topTenTodayListAdapter: EntertainmentListAdapter by inject()
+    private val nowPlayingListAdapter: EntertainmentListAdapter by inject()
+    private val upcomingListAdapter: EntertainmentListAdapter by inject()
+    private val oldListAdapter: EntertainmentListAdapter by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,10 +46,46 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
             it.swipeRefreshLayout?.setDistanceToTriggerSync(500)
         }
 
+        setRV(v)
+
+        setObserver(v)
+
+        viewModel.getMovies()
+    }
+
+    private fun setRV(v: View?) {
         v?.rvPopular?.let {
             it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             it.adapter = popularListAdapter
         }
+
+        v?.rvTopRated?.let {
+            it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            it.adapter = popularListAdapter
+        }
+
+        v?.rvTopTenToday?.let {
+            it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            it.adapter = popularListAdapter
+        }
+
+        v?.rvNowPlaying?.let {
+            it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            it.adapter = popularListAdapter
+        }
+
+        v?.rvUpcoming?.let {
+            it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            it.adapter = popularListAdapter
+        }
+
+        v?.rvOld?.let {
+            it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            it.adapter = popularListAdapter
+        }
+    }
+
+    private fun setObserver(v: View?) {
 
         viewModel.imgFeaturedMovie.observe(viewLifecycleOwner, Observer { featuredMovie ->
             Picasso.get()
@@ -51,15 +93,29 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                 .into(v?.imgFeaturedEntertainment)
         })
 
-        viewModel.getImgMovieList(1).observe(viewLifecycleOwner, Observer { imgMovieList ->
-
+        viewModel.getImgMovieList(CategoryEnum.POPULAR).observe(viewLifecycleOwner, Observer { imgMovieList ->
+            popularListAdapter.updateList(imgMovieList)
         })
 
-        viewModel.getImgMovieList(2).observe(viewLifecycleOwner, Observer { imgMovieList ->
-
+        viewModel.getImgMovieList(CategoryEnum.TOP_RATED).observe(viewLifecycleOwner, Observer { imgMovieList ->
+            topRatedListAdapter.updateList(imgMovieList)
         })
 
-        viewModel.getMovies()
+        viewModel.getImgMovieList(CategoryEnum.TOP_10_TODAY).observe(viewLifecycleOwner, Observer { imgMovieList ->
+            topTenTodayListAdapter.updateList(imgMovieList)
+        })
+
+        viewModel.getImgMovieList(CategoryEnum.NOW_PLAYING).observe(viewLifecycleOwner, Observer { imgMovieList ->
+            nowPlayingListAdapter.updateList(imgMovieList)
+        })
+
+        viewModel.getImgMovieList(CategoryEnum.UPCOMING).observe(viewLifecycleOwner, Observer { imgMovieList ->
+            upcomingListAdapter.updateList(imgMovieList)
+        })
+
+        viewModel.getImgMovieList(CategoryEnum.OLD).observe(viewLifecycleOwner, Observer { imgMovieList ->
+            oldListAdapter.updateList(imgMovieList)
+        })
     }
 
     override fun onRefresh() {
