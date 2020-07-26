@@ -8,12 +8,28 @@ class WebClient(
     private val service: Service = RetrofitConfig().service
 ) {
 
-    suspend fun getPopularMovies(): MovieResponse {
+    suspend fun getPopularMovieList(): MovieResponse {
         return service.getPopularMovieList()
     }
 
-    suspend fun getTopRatedMovies(): MovieResponse {
+    suspend fun getTopRatedMovieList(): MovieResponse {
         return service.getTopRatedMovieList()
+    }
+
+    suspend fun getTopTenTodayMovieList(): MovieResponse {
+        return service.getTopTenTodayMovieList()
+    }
+
+    suspend fun getNowPlayingMovieList(): MovieResponse {
+        return service.getNowPlayingMovieList()
+    }
+
+    suspend fun getUpcomingMovieList(): MovieResponse {
+        return service.getUpcomingMovieList()
+    }
+
+    suspend fun getOldMovieList(): MovieResponse {
+        return service.getOldMovieList()
     }
 
 }

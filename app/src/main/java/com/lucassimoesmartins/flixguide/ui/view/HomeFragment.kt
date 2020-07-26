@@ -61,27 +61,27 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
         v?.rvTopRated?.let {
             it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            it.adapter = popularListAdapter
+            it.adapter = topRatedListAdapter
         }
 
         v?.rvTopTenToday?.let {
             it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            it.adapter = popularListAdapter
+            it.adapter = topTenTodayListAdapter
         }
 
         v?.rvNowPlaying?.let {
             it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            it.adapter = popularListAdapter
+            it.adapter = nowPlayingListAdapter
         }
 
         v?.rvUpcoming?.let {
             it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            it.adapter = popularListAdapter
+            it.adapter = upcomingListAdapter
         }
 
         v?.rvOld?.let {
             it.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            it.adapter = popularListAdapter
+            it.adapter = oldListAdapter
         }
     }
 

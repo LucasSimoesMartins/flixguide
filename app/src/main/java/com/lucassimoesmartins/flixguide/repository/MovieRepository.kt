@@ -21,11 +21,41 @@ class MovieRepository(
         try {
             val movieCategoryCrossRefList = arrayListOf<MovieCategoryCrossRef>()
 
-            val movieResponse: MovieResponse = webClient.getPopularMovies()
+            val movieResponse: MovieResponse = webClient.getPopularMovieList()
 
             movieResponse.results.forEach { movie ->
                 movieCategoryCrossRefList.add(MovieCategoryCrossRef(movieId = movie.id, categoryId = CategoryEnum.POPULAR.id))
             }
+
+            movieResponse.results.addAll(webClient.getTopRatedMovieList().results.apply {
+                this.forEach { movie ->
+                    movieCategoryCrossRefList.add(MovieCategoryCrossRef(movieId = movie.id, categoryId = CategoryEnum.TOP_RATED.id))
+                }
+            })
+
+            movieResponse.results.addAll(webClient.getTopTenTodayMovieList().results.apply {
+                this.forEach { movie ->
+                    movieCategoryCrossRefList.add(MovieCategoryCrossRef(movieId = movie.id, categoryId = CategoryEnum.TOP_10_TODAY.id))
+                }
+            })
+
+            movieResponse.results.addAll(webClient.getNowPlayingMovieList().results.apply {
+                this.forEach { movie ->
+                    movieCategoryCrossRefList.add(MovieCategoryCrossRef(movieId = movie.id, categoryId = CategoryEnum.NOW_PLAYING.id))
+                }
+            })
+
+            movieResponse.results.addAll(webClient.getUpcomingMovieList().results.apply {
+                this.forEach { movie ->
+                    movieCategoryCrossRefList.add(MovieCategoryCrossRef(movieId = movie.id, categoryId = CategoryEnum.UPCOMING.id))
+                }
+            })
+
+            movieResponse.results.addAll(webClient.getOldMovieList().results.apply {
+                this.forEach { movie ->
+                    movieCategoryCrossRefList.add(MovieCategoryCrossRef(movieId = movie.id, categoryId = CategoryEnum.OLD.id))
+                }
+            })
 
             movieDao.insertMovieCategoryCrossRefList(movieCategoryCrossRefList)
             movieDao.insertMovieList(movieResponse.results)
