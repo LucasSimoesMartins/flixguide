@@ -20,7 +20,10 @@ interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovieCategoryCrossRefList(movieCategoryCrossRef: List<MovieCategoryCrossRef>)
 
-    @Query("SELECT poster_path FROM Movie m inner join MovieCategoryCrossRef c on m.id = c.movieId where c.categoryId = :categoryId order by popularity desc limit 20")
+    @Query("select poster_path from Movie m inner join MovieCategoryCrossRef c on m.id = c.movieId where c.categoryId = :categoryId and poster_path is not null order by popularity desc limit 20")
     fun getImgMovieList(categoryId: Int): LiveData<List<String>>
+
+    @Query("delete from Movie")
+    suspend fun deleteAllMovies()
 
 }

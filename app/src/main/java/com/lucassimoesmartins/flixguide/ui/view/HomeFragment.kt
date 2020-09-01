@@ -93,28 +93,17 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                 .into(v?.imgFeaturedEntertainment)
         })
 
-        viewModel.getImgMovieList(CategoryEnum.POPULAR).observe(viewLifecycleOwner, Observer { imgMovieList ->
-            popularListAdapter.updateList(imgMovieList)
-        })
+        updateAdapter(CategoryEnum.POPULAR, popularListAdapter)
+        updateAdapter(CategoryEnum.TOP_RATED, topRatedListAdapter)
+        updateAdapter(CategoryEnum.TOP_10_TODAY, topTenTodayListAdapter)
+        updateAdapter(CategoryEnum.NOW_PLAYING, nowPlayingListAdapter)
+        updateAdapter(CategoryEnum.UPCOMING, upcomingListAdapter)
+        updateAdapter(CategoryEnum.OLD, oldListAdapter)
+    }
 
-        viewModel.getImgMovieList(CategoryEnum.TOP_RATED).observe(viewLifecycleOwner, Observer { imgMovieList ->
-            topRatedListAdapter.updateList(imgMovieList)
-        })
-
-        viewModel.getImgMovieList(CategoryEnum.TOP_10_TODAY).observe(viewLifecycleOwner, Observer { imgMovieList ->
-            topTenTodayListAdapter.updateList(imgMovieList)
-        })
-
-        viewModel.getImgMovieList(CategoryEnum.NOW_PLAYING).observe(viewLifecycleOwner, Observer { imgMovieList ->
-            nowPlayingListAdapter.updateList(imgMovieList)
-        })
-
-        viewModel.getImgMovieList(CategoryEnum.UPCOMING).observe(viewLifecycleOwner, Observer { imgMovieList ->
-            upcomingListAdapter.updateList(imgMovieList)
-        })
-
-        viewModel.getImgMovieList(CategoryEnum.OLD).observe(viewLifecycleOwner, Observer { imgMovieList ->
-            oldListAdapter.updateList(imgMovieList)
+    private fun updateAdapter(categoryEnum: CategoryEnum, entertainmentListAdapter: EntertainmentListAdapter) {
+        viewModel.getImgMovieList(categoryEnum).observe(viewLifecycleOwner, Observer { imgMovieList ->
+            entertainmentListAdapter.updateList(imgMovieList)
         })
     }
 
