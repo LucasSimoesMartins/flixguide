@@ -1,9 +1,13 @@
 # Flixguide
 
 ## ✨ Screenshots
-| Splash Screen |
-|:-:|
-| <img src="https://user-images.githubusercontent.com/25203907/84219566-3a253a00-aaa7-11ea-872d-fdf37d90b87f.png" height="400"/> |
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/25203907/151914426-17197b16-22d8-4b6f-9c95-bbf2b9846a1b.png" width="40%"/>
+<img src="https://user-images.githubusercontent.com/25203907/151913032-be1a5947-81d6-4913-a1dd-cca58a04bf8d.jpg" width="40%"/>
+</p>
+
+https://user-images.githubusercontent.com/25203907/151913796-06ca8a8f-3ce6-4518-9a4b-416179c96ca4.mp4
 
 ## About this project
 
